@@ -1,51 +1,65 @@
 
 trigger:
 
-- master
 
+- master
 
 
 
 pool:
 
-vmImage: 'ubuntu-latest'
+
+  vmImage: 'ubuntu-latest'
+
 
 strategy:
 
-matrix:
 
-Python27:
+  matrix:
 
-python.version: '2.7'
 
+    Python27:
+
+
+      python.version: '2.7'
 
 
 
 steps:
 
+
 - task: UsePythonVersion@0
 
-inputs:
 
-versionSpec: '$(python.version)'
+  inputs:
 
-displayName: 'Use Python $(python.version)'
 
- - script: python "sum.py"
+    versionSpec: '$(python.version)'
 
+
+  displayName: 'Use Python $(python.version)'
+
+
+- script: python "sum.py"
 
 
 
 - task: PythonScript@0
 
-inputs:
 
-scriptSource: 'inline'
+  inputs:
 
-script: |
+
+    scriptSource: 'inline'
+
+
+    script: |
+
 
       print('Hello world 1')
 
-      print('Hello world 2')
+
+      print('KLU')
+
 
 
